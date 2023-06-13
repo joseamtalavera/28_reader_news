@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,7 +11,41 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
+/*
+reader-news/
+├── public/
+│   └── index.html
+└── src/
+    ├── app/
+    │   ├── App.css
+    │   ├── App.js
+    │   └── store.js
+    ├── components/
+    │   ├── ArticleListItem.js
+    │   ├── Comment.js
+    │   ├── CommentForm.js
+    │   ├── CommentList.js
+    │   └── FullArticle.js
+    ├── features/
+    │   ├── articlePreviews/
+    │   │   ├── ArticlePreviews.js
+    │   │   └── articlePreviewsSlice.js
+    │   ├── comments/
+    │   │   ├── Comments.js
+    │   │   └── commentsSlice.js
+    │   └── currentArticle/
+    │       ├── CurrentArticle.js
+    │       └── currentArticleSlice.js
+    ├── mocks/
+    │   ├── article.json
+    │   ├── browser.js
+    │   ├── comments.json
+    │   └── handlers.js
+    ├── index.compiled.js
+    ├── index.css
+    ├── mockServiceWorker.js
+    └── index.js (assuming you have an index.js as an entry point)
+
+    */
