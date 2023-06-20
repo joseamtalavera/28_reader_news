@@ -23,46 +23,7 @@ export const postCommentForArticleId = createAsyncThunk(
 
 )
 
-export const commentsSlice = createSlice({
-    name: 'comments',
-    initialState: {
-        byArticleId: {},
-        isLoadingComments: false,
-        failedToLoadComments: false,
-        createCommentIsPending: false,
-        failedToCreateComment: false,
-    },
-    extraReducers: {
-        [loadCommentsForArticleId.pending]: (state, action) => {
-            state.isLoadingComments = true;
-            state.failedToLoadComments = false;
-        },
-        [loadCommentsForArticleId.fulfilled]: (state, action) => {
-            state.isLoadingComments = false;
-            state.failedToLoadComments = false;
-            const {articleId, comments} = action.payload;
-            state.byArticleId[articleId] = comments;
-        },
-        [loadCommentsForArticleId.rejected]: (state, action) => {
-            state.isLoadingComments = false;
-            state.failedToLoadComments = true;
-        },
-        [postCommentForArticleId.pending]: (state, action) => {
-            state.createCommentIsPending = true;
-            state.failedToCreateComment = false;
-        },
-        [postCommentForArticleId.fulfilled]: (state, action) => {
-            state.createCommentIsPending = false;
-            state.failedToCreateComment = false;
-            const {articleId, comment} = action.payload;
-            state.byArticleId[articleId].push(comment);
-        },
-        [postCommentForArticleId.rejected]: (state, action) => {
-            state.createCommentIsPending = false;
-            state.failedToCreateComment = false;
-        }
-    }
-});
+_
 
 
 export const selectComments = (state) => state.comments.byArticleId;
