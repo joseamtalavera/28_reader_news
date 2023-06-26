@@ -1,41 +1,43 @@
-import { createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import articles from '../../mocks/articles.json'
 
 export const loadAllPreviews = createAsyncThunk(
-    'articlePreviews/loadAllPreviews',
-    async() => {
-        const data = await fetch('api/articles');
-        const json = await data.json();
-        return json;
-    }
+  'articlePreviews/loadAllPreviews',
+  async () => {
+    //const data = await fetch('api/articles');
+    //const json = await data.json();
+    //return json;
+    return articles;
+  }
 );
 
 export const articlePreviewsSlice = createSlice({
-    name: 'articlePreviews',
-    initialState: {
-    articles:[],
-    isloadingArticlePreviews: false,
+  name: 'articlePreviews',
+  initialState: {
+    articles: [],
+    isLoadingArticlePreviews: false,
     hasError: false
-},
-extraReducers: (builder) => {
+  },
+  extraReducers: (builder) => {
     builder
-    .addCase(loadAllPreviews.pending, (state) => {
-        state.isloadingArticlePreviews = true;
+      .addCase(loadAllPreviews.pending, (state) => {
+        state.isLoadingArticlePreviews = true;
         state.hasError = false;
-    })
-    .addCase(loadAllPreviews.fulfilled, (state, action) => {
-        state.isloadingArticlePreviews = false;
+      })
+      .addCase(loadAllPreviews.fulfilled, (state, action) => {
+        state.isLoadingArticlePreviews = false;
         state.articles = action.payload;
-
-    })
-    .addCase(loadAllPreviews.rejected, (state, action) => {
-        state.isloadingArticlePreviews = false;
+      })
+      .addCase(loadAllPreviews.rejected, (state, action) => {
+        state.isLoadingArticlePreviews = false;
         state.hasError = true;
         state.articles = [];
-    })
-},
+      })
+  },
 });
 
-
 export const selectAllPreviews = (state) => state.articlePreviews.articles;
+
 export const isLoading = (state) => state.articlePreviews.isLoading;
+
 export default articlePreviewsSlice.reducer;
