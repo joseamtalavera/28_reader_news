@@ -1,16 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import comments from '../../mocks/comments.json';
 
 
 export const loadCommentsForArticleId = createAsyncThunk(
   'comments/loadCommentsForArticleId',
   async (articleId) => {
-
-    const articleComments = comments.filter((comment) => comment.articleId === articleId);
-    return articleComments;
-    //const response = await fetch(`api/articles/${articleId}/comment`);
-    //const json = await response.json();
-    //return json;
+    const response = await fetch(`api/articles/${articleId}/comment`);
+    const json = await response.json();
+    return json;
   }
 );
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import App from './app/App';
 import store from './app/store';
 import { Provider } from 'react-redux';
@@ -7,12 +7,13 @@ import { Provider } from 'react-redux';
 const { worker } = require('./mocks/browser');
 worker.start();
 
-createRoot(document.getElementById('root')).render(
+ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 

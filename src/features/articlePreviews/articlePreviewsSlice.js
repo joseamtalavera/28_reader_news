@@ -1,13 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import articles from '../../mocks/articles.json'
 
 export const loadAllPreviews = createAsyncThunk(
   'articlePreviews/loadAllPreviews',
   async () => {
-    //const data = await fetch('api/articles');
-    //const json = await data.json();
-    //return json;
-    return articles;
+    const data = await fetch('api/articles');
+    const json = await data.json();
+    return json;
   }
 );
 

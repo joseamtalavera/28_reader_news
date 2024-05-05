@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Redux News Reader
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a news reader application where users can view and comment on various articles. It provides an opportunity to practice using Redux Toolkit’s `createAsyncThunk` and `createSlice` utilities to add asynchronous functionality to Redux applications.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+The Redux News Reader is a dynamic web application that allows users to browse, read, and comment on news articles. The application is built with React and Redux, and uses Redux Toolkit for efficient Redux coding.
 
-### `npm start`
+## Current Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Article Previews**: The application fetches and displays a list of all articles in their preview form. Users can browse through the list and select an article to read in full.
+- **Current Article**: The application fetches and displays the current article selected by the user. Users can switch between articles as they wish.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The code for these features is accessible in the `features/articlePreviews` and `features/currentArticle` directories respectively.
 
-### `npm test`
+## Task
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Your task will be to complete the comments feature. This involves the following:
 
-### `npm run build`
+- **Fetch Comments**: Whenever the featured article changes, you will asynchronously fetch the comments for that article and add them to your store so they display under the article.
+- **Submit Comments**: When a user submits a new comment, you will submit it to the server via an asynchronous request and display it in the article’s list of comments once it has been successfully created.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Before you get started, spend some time familiarizing yourself with the project’s starting code. In particular, take note of the way the project employs `createSlice` and `createAsyncThunk` in `currentArticleSlice.js` and `articlePreviewsSlice.js`, as your work on the comments slice will resemble these files.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+To get started with the project, clone the repository and install the dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+git clone https://github.com/your-repo/redux-news-reader.git
+cd redux-news-reader
+npm install
